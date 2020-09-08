@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Profiling;
 using Random = UnityEngine.Random;
 
 #pragma warning disable 0649
@@ -11,15 +13,18 @@ namespace Phoenix
     public class MorphGod : SerializedMonoBehaviour
     {
         [ShowInInspector] [ReadOnly] private Queue<MicroBot> botPool;
+        [ShowInInspector] [ReadOnly] private bool changingShape;
+        [ShowInInspector] [ReadOnly] private List<MicroBot> finalList;
+        [ShowInInspector] [ReadOnly] private List<MicroBot> refList;
 
         private void Start()
         {
             LeanTween.init(2000);
-            
+
             botPool = new Queue<MicroBot>();
             for (int i = 0; i < 1000; i++)
             {
-                var newPoolObject=  GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                var newPoolObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                 newPoolObject.transform.SetParent(transform);
                 newPoolObject.GetComponent<Renderer>().material.color = Random.ColorHSV();
                 newPoolObject.transform.position =
@@ -28,15 +33,15 @@ namespace Phoenix
                     new Vector3(Random.Range(90, -90), Random.Range(90, -90), Random.Range(90, -90));
                 newPoolObject.name = i.ToString() + " Pool";
                 newPoolObject.SetActive(true);
-                botPool.Enqueue(new MicroBot(null, newPoolObject.transform, newPoolObject.GetComponent<Renderer>().material.color));
+                botPool.Enqueue(new MicroBot(null, newPoolObject.transform,
+                    newPoolObject.GetComponent<Renderer>().material.color));
             }
         }
 
         [Button("Begin Shape Change")]
         public void ShapeChange(IncomingShape[] incomingShapes, OutgoingShape[] outputShapes)
         {
-            if (outputShapes == null)
-                return;
+            Profiler.BeginSample("Micken");
 
             List<MicroBot> involvedBots = new List<MicroBot>();
 
@@ -55,7 +60,7 @@ namespace Phoenix
 
             foreach (var botInTransaction in involvedBots)
             {
-               // Debug.Log($"Name = {botInTransaction.botTransform.name}", botInTransaction.botTransform.gameObject);
+                // Debug.Log($"Name = {botInTransaction.botTransform.name}", botInTransaction.botTransform.gameObject);
                 botInTransaction.botTransform.SetParent(null);
                 //  botInTransaction.parentBot = null;
                 // botInTransaction.childrenBots.Clear();
@@ -68,9 +73,12 @@ namespace Phoenix
 
             #region Calculating Output Shapes
 
-            foreach (var outputShape in outputShapes)
+            if (outputShapes != null)
             {
-                targetReferenceBotList.AddRange(outputShape.targetShape.rootBot.GetBFS());
+                foreach (var outputShape in outputShapes)
+                {
+                    targetReferenceBotList.AddRange(outputShape.targetShape.rootBot.GetBFS());
+                }
             }
 
             #endregion
@@ -99,13 +107,16 @@ namespace Phoenix
                     temp.botTransform.SetParent(transform);
                     temp.childrenBots.Clear();
                     temp.parentBot = null;
-                    LeanTween.move(temp.botTransform.gameObject, new Vector3(Random.Range(30, -30), 0, Random.Range(30, -30)), 1f);
+                    LeanTween.move(temp.botTransform.gameObject,
+                        new Vector3(Random.Range(50, -50), 0, Random.Range(50, -50)), 1f);
                     botPool.Enqueue(temp);
                 }
             }
-
+        
             #endregion
-
+            if (outputShapes ==null)
+                return;
+            
             #region Magical Area
 
             Shape[] targetShapeSOArray = new Shape[outputShapes.Length];
@@ -118,21 +129,23 @@ namespace Phoenix
 
             List<MicroBot> newOutputTrees;
             List<MicroBot> finalBotList;
-            
+
 
             finalBotList = TreeExtensions.ListToTrees(involvedBots, targetShapeSOArray, out newOutputTrees);
-            
-            
+
             #endregion
-            
+
 
             if (involvedBots.Count != finalBotList.Count)
             {
                 Debug.Log($"invovled count = {involvedBots.Count} and the final bot count = {finalBotList.Count}");
                 throw new Exception("LINE 195");
             }
-            
-            
+
+            refList = targetReferenceBotList;
+            finalList = finalBotList;
+
+            /*
             for (int i = 0; i < involvedBots.Count; i++)
             {
                 LeanTween.move(finalBotList[i].botTransform.gameObject, targetReferenceBotList[i].botTransform.position,
@@ -143,6 +156,32 @@ namespace Phoenix
                     3f);
                 LeanTween.color(finalBotList[i].botTransform.gameObject, targetReferenceBotList[i].botColor, 3f);
             }
+            */
+            changingShape = true;
+            StartCoroutine(Bleh());
+        }
+
+        private void Update()
+        {
+            if (changingShape)
+            {
+                for (int i = 0; i < finalList.Count; i++)
+                {
+                    finalList[i].botTransform.position = Vector3.MoveTowards(finalList[i].botTransform.position,
+                        refList[i].botTransform.position, 1);
+                    finalList[i].botTransform.eulerAngles = Vector3.MoveTowards(finalList[i].botTransform.eulerAngles,
+                        refList[i].botTransform.eulerAngles, 1);
+                    //finalList[i].botTransform. = Vector3.MoveTowards( finalList[i].botTransform.eulerAngles,refList[i].botTransform.eulerAngles, 3);
+                }
+            }
+        }
+
+
+        IEnumerator Bleh()
+        {
+            yield return new WaitForSeconds(3f);
+           // Profiler.EndSample("Micken");
+            changingShape = false;
         }
     }
 }
