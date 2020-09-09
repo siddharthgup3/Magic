@@ -8,6 +8,6 @@ namespace Phoenix
     {
         [ReadOnly] public MicroBot rootBot;
         [ReadOnly] public int botsInShape;
-        
+        [ReadOnly] public int bonesInShape;
     }
 }

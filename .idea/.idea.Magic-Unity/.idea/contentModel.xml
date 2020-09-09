@@ -64,6 +64,7 @@
           <e p="MorphGod.cs" t="Include" />
           <e p="OutgoingShape.cs" t="Include" />
           <e p="Shape.cs" t="Include" />
+          <e p="Testing.cs" t="Include" />
           <e p="TreeExtensions.cs" t="Include" />
         </e>
       </e>

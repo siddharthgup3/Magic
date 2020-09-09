@@ -13,6 +13,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/Shape.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/EditorSOUpdater.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Testing.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/MicroBot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TreeExtensions.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MorphGod.cs" />
       </list>
     </option>
@@ -62,6 +67,8 @@
       <option name="presentableId" value="Default" />
       <updated>1599573354916</updated>
       <workItem from="1599573407701" duration="4853000" />
+      <workItem from="1599593538586" duration="608000" />
+      <workItem from="1599627954077" duration="8502000" />
     </task>
     <servers />
   </component>
@@ -72,5 +79,24 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/MorphGod.cs</url>
+          <line>29</line>
+          <properties documentPath="E:\Unity Projects\Magic-Unity\Assets\Scripts\MorphGod.cs" initialLine="29">
+            <startOffsets>
+              <option value="861" />
+            </startOffsets>
+            <endOffsets>
+              <option value="862" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Linq;
 using UnityEngine;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace Phoenix
@@ -14,9 +14,18 @@ namespace Phoenix
             int i = 0;
             foreach (Transform directChildTransform in rootBot.botTransform)
             {
-                var childNode = new MicroBot(rootBot, directChildTransform,
-                    directChildTransform.GetComponent<Renderer>().sharedMaterial
-                        .color); //Init all child nodes with this transform as parent
+                MicroBot childNode;
+                if (!directChildTransform.TryGetComponent(out Renderer _r))
+                {
+                    _r = directChildTransform.gameObject.AddComponent<MeshRenderer>();
+                    _r.enabled = false;
+                }
+                
+                if(_r.enabled)
+                    childNode= new MicroBot(rootBot, directChildTransform, _r.sharedMaterial.color);                              //Init all child nodes with this transform as parent
+                else
+                    childNode = new MicroBot(rootBot, directChildTransform);
+                
                 tempChildNodes[i++] = childNode;
                 childNode.FillTreeFromRoot(); //Start recursion
             }
@@ -69,7 +78,6 @@ namespace Phoenix
                     botQueue.Enqueue(childBot);
                 }
             }
-
             return finalBotList;
         }
 
@@ -97,6 +105,7 @@ namespace Phoenix
             return finalBotList;
         }
 
+        // ReSharper disable once MemberCanBePrivate.Global
         public static MicroBot DeepCopyTree(MicroBot bot, MicroBot parent = null)
         {
             if (bot == null)
@@ -105,8 +114,6 @@ namespace Phoenix
             var newBot = new MicroBot(parent, bot.botTransform, bot.botColor);
             foreach (var childBot in bot.childrenBots)
             {
-                //var temp = );
-                // if(temp!=null)
                 newBot.childrenBots.Add(DeepCopyTree(childBot, newBot));
             }
 
