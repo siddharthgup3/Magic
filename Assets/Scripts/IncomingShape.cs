@@ -4,7 +4,7 @@ namespace Phoenix
 {
     public class IncomingShape
     {
-        public Transform rootTransform;
+        public Transform rootTransform;    
         public Shape incomingShape;
 
         public MicroBot GetRootNode()

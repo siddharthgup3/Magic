@@ -10,15 +10,35 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/E8645A79-B079-4E0E-9A2B-5BBFF081B88A/3d/be22d306/Transform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/OtherTest.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/Shape.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EditorSOUpdater.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Testing.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MicroBot.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/TreeExtensions.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ShapeType.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Testing.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/New Folder/TransformStruc.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/New Folder/TransformStruct.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Testing/MeshTriangle.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Testing/Cutter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SOs/IMorphable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/IncomingShape.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/IMorphable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BaseShape.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/New Folder/Circle.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MorphGod.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/New Folder/MorphManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TreeExtensions.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Teeestt.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/OutgoingShape.cs" />
+        <option value="$PROJECT_DIR$/Assets/OtherTest.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/New Folder/SphereBoss.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/New Folder/ThrowBots.cs" />
       </list>
     </option>
   </component>
@@ -28,6 +48,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3502052" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.3002736" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -38,7 +60,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
-  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor &amp; Play">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -68,7 +90,11 @@
       <updated>1599573354916</updated>
       <workItem from="1599573407701" duration="4853000" />
       <workItem from="1599593538586" duration="608000" />
-      <workItem from="1599627954077" duration="8502000" />
+      <workItem from="1599627954077" duration="18670000" />
+      <workItem from="1599722821966" duration="19330000" />
+      <workItem from="1599750064841" duration="9125000" />
+      <workItem from="1599794562792" duration="11188000" />
+      <workItem from="1599816262936" duration="12778000" />
     </task>
     <servers />
   </component>
@@ -80,23 +106,85 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
+  <component name="WindowStateProjectService">
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom" timestamp="1599763819275">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599763819275" />
+    <state width="1493" height="261" key="GridCell.Tab.0.center" timestamp="1599763819275">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1599763819275" />
+    <state width="1493" height="261" key="GridCell.Tab.0.left" timestamp="1599763819275">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1599763819275" />
+    <state width="1493" height="261" key="GridCell.Tab.0.right" timestamp="1599763819275">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1599763819275" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1599763819275">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599763819275" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1599763819275">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1599763819275" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1599763819275">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1599763819275" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1599763819275">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1599763819275" />
+    <state width="1493" height="261" key="GridCell.Tab.2.bottom" timestamp="1599763819275">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599763819275" />
+    <state width="1493" height="261" key="GridCell.Tab.2.center" timestamp="1599763819275">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1599763819275" />
+    <state width="1493" height="261" key="GridCell.Tab.2.left" timestamp="1599763819275">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1599763819275" />
+    <state width="1493" height="261" key="GridCell.Tab.2.right" timestamp="1599763819275">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1599763819275" />
+    <state width="1493" height="261" key="GridCell.Tab.3.bottom" timestamp="1599763819275">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.3.bottom/0.0.1536.824@0.0.1536.824" timestamp="1599763819275" />
+    <state width="1493" height="261" key="GridCell.Tab.3.center" timestamp="1599763819275">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.3.center/0.0.1536.824@0.0.1536.824" timestamp="1599763819275" />
+    <state width="1493" height="261" key="GridCell.Tab.3.left" timestamp="1599763819275">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.3.left/0.0.1536.824@0.0.1536.824" timestamp="1599763819275" />
+    <state width="1493" height="261" key="GridCell.Tab.3.right" timestamp="1599763819275">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="261" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1599763819275" />
+    <state x="601" y="129" key="RiderGenerateDialog" timestamp="1599741724763">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="601" y="129" key="RiderGenerateDialog/0.0.1536.824@0.0.1536.824" timestamp="1599741724763" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1599800417054">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1599800417054" />
+  </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/MorphGod.cs</url>
-          <line>29</line>
-          <properties documentPath="E:\Unity Projects\Magic-Unity\Assets\Scripts\MorphGod.cs" initialLine="29">
-            <startOffsets>
-              <option value="861" />
-            </startOffsets>
-            <endOffsets>
-              <option value="862" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Frame#Phoenix.SphereBoss.Dance" memberName="this" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

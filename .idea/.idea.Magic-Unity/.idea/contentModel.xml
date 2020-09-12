@@ -8,7 +8,59 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="OtherTest.cs" t="Include" />
         <e p="Plugins" t="Include">
+          <e p="Invector-3rdPersonController_LITE" t="Include">
+            <e p="3D Models" t="Include">
+              <e p="Others" t="Include">
+                <e p="HealthItem" t="Include">
+                  <e p="vAnimateUV.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="README_Basic.txt" t="Include" />
+            <e p="Scripts" t="Include">
+              <e p="Camera" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="vThirdPersonCameraEditor.cs" t="Include" />
+                </e>
+                <e p="vThirdPersonCamera.cs" t="Include" />
+              </e>
+              <e p="CharacterController" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="Resources" t="Include">
+                    <e p="vEditorStartupPrefs.cs" t="Include" />
+                  </e>
+                  <e p="vCharacterEditor.cs" t="Include" />
+                  <e p="vInvectorStartup.cs" t="Include" />
+                  <e p="vInvectorWelcomeWindow.cs" t="Include" />
+                  <e p="vThirdPersonInputEditor.cs" t="Include" />
+                </e>
+                <e p="vThirdPersonAnimator.cs" t="Include" />
+                <e p="vThirdPersonController.cs" t="Include" />
+                <e p="vThirdPersonInput.cs" t="Include" />
+                <e p="vThirdPersonMotor.cs" t="Include" />
+              </e>
+              <e p="CharacterCreator" t="Include">
+                <e p="Script" t="Include">
+                  <e p="Editor" t="Include">
+                    <e p="vCreateBasicCharacterEditor.cs" t="Include" />
+                    <e p="vHelperEditor.cs" t="Include" />
+                  </e>
+                </e>
+              </e>
+              <e p="Generic" t="Include">
+                <e p="Utils" t="Include">
+                  <e p="Editor" t="Include">
+                    <e p="vCommentEditor.cs" t="Include" />
+                  </e>
+                  <e p="vComment.cs" t="Include" />
+                  <e p="vExtensions.cs" t="Include" />
+                  <e p="vPickupItem.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
           <e p="LeanTween" t="Include">
             <e p="Editor" t="Include">
               <e p="LeanTweenDocumentationEditor.cs" t="Include" />
@@ -56,15 +108,41 @@
             </e>
             <e p="ReadMe.txt" t="Include" />
           </e>
+          <e p="Unity" t="Include">
+            <e p="ConstraintSamples" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="mParent.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Info" t="Include">
+              <e p="Scripts" t="Include">
+                <e p="Editor" t="Include">
+                  <e p="ReadmeEditor.cs" t="Include" />
+                </e>
+                <e p="Readme.cs" t="Include" />
+              </e>
+            </e>
+          </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="BaseShape.cs" t="Include" />
           <e p="EditorSOUpdater.cs" t="Include" />
+          <e p="IMorphable.cs" t="Include" />
           <e p="IncomingShape.cs" t="Include" />
           <e p="MicroBot.cs" t="Include" />
           <e p="MorphGod.cs" t="Include" />
+          <e p="New Folder" t="Include">
+            <e p="MorphManager.cs" t="Include" />
+            <e p="Movement.cs" t="Include" />
+            <e p="NewSurfaceShader.shader" t="Include" />
+            <e p="SphereBoss.cs" t="Include" />
+            <e p="Testing.cs" t="Include" />
+            <e p="ThrowBots.cs" t="Include" />
+            <e p="TransformStruct.cs" t="Include" />
+          </e>
           <e p="OutgoingShape.cs" t="Include" />
           <e p="Shape.cs" t="Include" />
-          <e p="Testing.cs" t="Include" />
+          <e p="ShapeType.cs" t="Include" />
           <e p="TreeExtensions.cs" t="Include" />
         </e>
       </e>

@@ -119,5 +119,23 @@ namespace Phoenix
 
             return newBot;
         }
+
+        public static List<MicroBot> GetRenderedBots(this MicroBot root)
+        {
+            
+            root.FillTreeFromRoot();
+            List<MicroBot> renderedBots = root.GetBFS(); 
+            
+            Debug.Log($"Getting the rendered bots -- {renderedBots.Count}");
+            for (int i = renderedBots.Count -1; i >= 0; i--)
+            {
+                if (renderedBots[i].botTransform.GetComponent<Renderer>().enabled == false)
+                {
+                    renderedBots.RemoveAt(i++);
+                }
+            }
+            Debug.Log($"Updated count -- {renderedBots.Count}");
+            return renderedBots;
+        }
     }
 }
