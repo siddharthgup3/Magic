@@ -12,7 +12,7 @@ namespace Phoenix
     public class MorphGod : SerializedMonoBehaviour
     {
         private MorphManager morphManager;
-        
+
         [ShowInInspector] [ReadOnly] public Queue<MicroBot> botPool;
         [ShowInInspector] [ReadOnly] private Queue<MicroBot> bonesPool;
 
@@ -20,10 +20,20 @@ namespace Phoenix
         [ShowInInspector] [ReadOnly] private List<MicroBot> finalList;
         [ShowInInspector] [ReadOnly] private List<MicroBot> refList;
 
+
+        [ShowInInspector] [ReadOnly] private List<Material> finalListRenderers;
+        [ShowInInspector] [ReadOnly] private List<Material> refListRenderers;
+
+        private float progress;
+        
+        
+        private static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
+        private static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
+
         private void Start()
         {
             morphManager = FindObjectOfType<MorphManager>();
-            LeanTween.init(200);
+            LeanTween.init(2000);
         }
 
 
@@ -31,7 +41,7 @@ namespace Phoenix
         public void ShapeChange(IncomingShape[] incomingShapes, OutgoingShape[] outputShapes)
         {
             #region Calculating Input Shapes
-        
+
             List<MicroBot> involvedBots = new List<MicroBot>();
             if (incomingShapes != null)
             {
@@ -46,7 +56,7 @@ namespace Phoenix
                     }
 
                     morphManager.activeTreeRoots.Remove(incomingShape.GetRootNode());
-                    
+
                     var rootNode = incomingShape.GetRootNode(); //Get root node
                     rootNode.FillTreeFromRoot(); //Fill tree according to root node.
                     List<MicroBot> listOfNodesInShape = rootNode.ReverseOrderTraversal();
@@ -64,8 +74,7 @@ namespace Phoenix
             #endregion
 
             #region Calculating Output Shapes
-            
-            
+
             List<MicroBot> targetReferenceBotList = new List<MicroBot>();
             if (outputShapes != null)
             {
@@ -119,28 +128,34 @@ namespace Phoenix
             {
                 targetShapeSOArray[j++] = outgoingShape.targetShape;
             }
-        
+
 
             var finalBotList = involvedBots.ListToTrees(targetShapeSOArray, out var newOutputTrees);
 
             morphManager.activeTreeRoots.AddRange(newOutputTrees);
-            
+
             if (involvedBots.Count != finalBotList.Count)
                 throw new Exception("LINE 195");
-            
+
 
             refList = targetReferenceBotList;
             finalList = finalBotList;
 
+
+            finalListRenderers = new List<Material>();
+            refListRenderers = new List<Material>();
             for (int i = 0; i < finalList.Count; i++)
             {
                 if (finalList[i].botTransform.TryGetComponent(out Renderer _finalRender) &&
                     refList[i].botTransform.TryGetComponent(out Renderer _refRender))
                 {
                     _finalRender.enabled = _refRender.enabled;
+                    finalListRenderers.Add(_finalRender.material);
+                    refListRenderers.Add(_refRender.sharedMaterial);
                 }
             }
 
+            progress = 0f;
             changingShape = true;
             StartCoroutine(Bleh());
         }
@@ -149,19 +164,31 @@ namespace Phoenix
         {
             if (changingShape)
             {
+                progress += Time.deltaTime;
                 for (int i = 0; i < finalList.Count; i++)
                 {
                     finalList[i].botTransform.position = Vector3.MoveTowards(finalList[i].botTransform.position,
                         refList[i].botTransform.position, 1);
+
                     finalList[i].botTransform.eulerAngles = Vector3.MoveTowards(finalList[i].botTransform.eulerAngles,
                         refList[i].botTransform.eulerAngles, 1);
+
+                    if(refListRenderers[i]==null)
+                        throw new Exception("ref null");
+                    if(finalListRenderers[i]==null)
+                        throw new Exception("final null");
+                    
+                    var _color = Color.Lerp(finalListRenderers[i].color, refListRenderers[i].color, progress);
+                    finalListRenderers[i].SetColor(BaseColor, _color * 2);
+                    finalListRenderers[i].SetColor(EmissionColor, _color * 2);
                 }
             }
         }
-        
+
         private IEnumerator Bleh()
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(5f);
+            Debug.Log($"Ending morph");
             changingShape = false;
         }
     }

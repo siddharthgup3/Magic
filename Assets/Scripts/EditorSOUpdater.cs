@@ -13,8 +13,11 @@ namespace Phoenix
         {
             MicroBot rootBot;
             if (prefabRootObject.TryGetComponent(out Renderer _r))
+            {
                 rootBot = new MicroBot(null, prefabRootObject.transform,
                     prefabRootObject.GetComponent<Renderer>().sharedMaterial.color);
+                
+            }
             else
                 rootBot = new MicroBot(null, prefabRootObject.transform);
 

@@ -8,7 +8,10 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="OtherTest.cs" t="Include" />
+        <e p="MeshManipulation" t="Include">
+          <e p="GetData.cs" t="Include" />
+          <e p="ParticleSystemTest.cs" t="Include" />
+        </e>
         <e p="Plugins" t="Include">
           <e p="Invector-3rdPersonController_LITE" t="Include">
             <e p="3D Models" t="Include">
@@ -108,7 +111,7 @@
             </e>
             <e p="ReadMe.txt" t="Include" />
           </e>
-          <e p="Unity" t="Include">
+          <e p="Unity_AnimRig" t="Include">
             <e p="ConstraintSamples" t="Include">
               <e p="Scripts" t="Include">
                 <e p="mParent.cs" t="Include" />
@@ -126,6 +129,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="BaseShape.cs" t="Include" />
+          <e p="EditorColorManager.cs" t="Include" />
           <e p="EditorSOUpdater.cs" t="Include" />
           <e p="IMorphable.cs" t="Include" />
           <e p="IncomingShape.cs" t="Include" />

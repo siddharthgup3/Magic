@@ -14,15 +14,16 @@ namespace Phoenix
         private List<MicroBot> poolToList;
 
         private bool moving;
+        
         private static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
-
+        
         private void Start()
         {
             morphGod = FindObjectOfType<MorphGod>();
             randomTargets = new List<TransformStruct>();
             morphGod.botPool = new Queue<MicroBot>();
             poolToList = new List<MicroBot>();
-            for (int i = 0; i < 1000; i++)
+            for (int i = 0; i < 1800; i++)
             {
                 var newPoolObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                 newPoolObject.transform.SetParent(morphGod.gameObject.transform);
@@ -32,8 +33,7 @@ namespace Phoenix
                 var _color = Random.ColorHSV();
                 _r.material.color = _color;
                 _r.material.EnableKeyword("_EMISSION");
-                _r.material.EnableKeyword("_EMISSIONCOLOR");
-                _r.material.EnableKeyword("_EmissionColor");
+
                 _r.material.SetColor(EmissionColor,_color * 2f);
 
                 randomTargets.Add(new TransformStruct(new Vector3(Random.Range(30, -30), 0, Random.Range(30, -30)),
@@ -72,9 +72,3 @@ namespace Phoenix
         }
     }
 }
-/*
-                newPoolObject.transform.position =
-                    
-                newPoolObject.transform.eulerAngles =
-                    new Vector3(Random.Range(90, -90), Random.Range(90, -90), Random.Range(90, -90));
-                    */

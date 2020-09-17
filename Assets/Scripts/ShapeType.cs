@@ -4,6 +4,8 @@
     {
         Grapple, 
         Circle,
-        Rge
+        Rge,
+        Spider,
+        Bear
     }
 }

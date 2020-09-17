@@ -21,6 +21,8 @@ namespace Phoenix
         public Shape circle;
         public Shape grapple;
         public Shape grep;
+        public Shape spider;
+        public Shape Bear;
         private void Start()
         {
             morphGod = FindObjectOfType<MorphGod>();
@@ -39,9 +41,13 @@ namespace Phoenix
             {
                 case ShapeType.Circle: x = circle;
                     break;
+                case ShapeType.Spider: x = spider;
+                    break;
                 case ShapeType.Grapple : x = grapple;
                     break;
                 case ShapeType.Rge : x = grep;
+                    break;
+                case ShapeType.Bear : x = Bear;
                     break;
                 default: x = circle;
                     Debug.Log("Default value as circle");
